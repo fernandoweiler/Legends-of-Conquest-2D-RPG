@@ -4,14 +4,27 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player playerInstance;
+
     [SerializeField] Rigidbody2D playerRigidbody;
     [SerializeField] Animator playerAnimator;
     [SerializeField] int playerSpeed = 1;
 
+    public string transitionName;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (playerInstance != null && playerInstance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            playerInstance = this;
+        }
 
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
