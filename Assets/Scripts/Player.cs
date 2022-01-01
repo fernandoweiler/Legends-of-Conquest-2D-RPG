@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public class Player : MonoBehaviour
 {
-    public static Player playerInstance;
+    public static Player Instance;
 
-    [SerializeField] Rigidbody2D playerRigidbody;
-    [SerializeField] Animator playerAnimator;
-    [SerializeField] Tilemap tilemap;
+    [SerializeField] private Rigidbody2D playerRigidbody;
+    [SerializeField] private Animator playerAnimator;
 
-    [SerializeField] int playerSpeed = 1;
-
+    [SerializeField] private int playerSpeed = 1;
 
     public string transitionName;
 
@@ -20,25 +15,22 @@ public class Player : MonoBehaviour
     private Vector3 topRightEdge;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        if (playerInstance != null && playerInstance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
         }
         else
         {
-            playerInstance = this;
+            Instance = this;
         }
 
         DontDestroyOnLoad(gameObject);
-
-        bottomLeftEdge = tilemap.localBounds.min + new Vector3(1f, 0.7f, 0f);
-        topRightEdge = tilemap.localBounds.max + new Vector3(-1f, -0.7f, 0f);
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         float horizontalMovement = Input.GetAxisRaw("Horizontal");
         float verticalMovement = Input.GetAxisRaw("Vertical");
@@ -59,5 +51,11 @@ public class Player : MonoBehaviour
                 Mathf.Clamp(transform.position.x, bottomLeftEdge.x, topRightEdge.x),
                 Mathf.Clamp(transform.position.y, bottomLeftEdge.y, topRightEdge.y)
             );
+    }
+
+    public void SetLimits(Vector3 bottomEdgeToSet, Vector3 topEdgeToSet)
+    {
+        bottomLeftEdge = bottomEdgeToSet;
+        topRightEdge = topEdgeToSet;
     }
 }

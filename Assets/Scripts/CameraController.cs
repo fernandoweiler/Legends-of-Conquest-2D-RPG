@@ -1,15 +1,13 @@
 using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
     private Player playerTarget;
-    CinemachineVirtualCamera virtualCamera;
+    private CinemachineVirtualCamera virtualCamera;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         playerTarget = FindObjectOfType<Player>();
         virtualCamera = GetComponent<CinemachineVirtualCamera>();
@@ -18,8 +16,7 @@ public class CameraController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 }

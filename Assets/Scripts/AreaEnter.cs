@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AreaEnter : MonoBehaviour
@@ -7,17 +5,16 @@ public class AreaEnter : MonoBehaviour
     public string transitionName;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        if (transitionName != null && transitionName == Player.playerInstance.transitionName)
+        if (transitionName != null && transitionName == Player.Instance.transitionName)
         {
-            Player.playerInstance.transform.position = transform.position;
+            Player.Instance.transform.position = transform.position;
         }
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 }
