@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Player : MonoBehaviour
 {
@@ -8,9 +9,15 @@ public class Player : MonoBehaviour
 
     [SerializeField] Rigidbody2D playerRigidbody;
     [SerializeField] Animator playerAnimator;
+    [SerializeField] Tilemap tilemap;
+
     [SerializeField] int playerSpeed = 1;
 
+
     public string transitionName;
+
+    private Vector3 bottomLeftEdge;
+    private Vector3 topRightEdge;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +32,9 @@ public class Player : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+
+        bottomLeftEdge = tilemap.localBounds.min + new Vector3(1f, 0.7f, 0f);
+        topRightEdge = tilemap.localBounds.max + new Vector3(-1f, -0.7f, 0f);
     }
 
     // Update is called once per frame
@@ -44,5 +54,10 @@ public class Player : MonoBehaviour
             playerAnimator.SetFloat("lastY", verticalMovement);
         }
 
+        transform.position =
+            new Vector3(
+                Mathf.Clamp(transform.position.x, bottomLeftEdge.x, topRightEdge.x),
+                Mathf.Clamp(transform.position.y, bottomLeftEdge.y, topRightEdge.y)
+            );
     }
 }
