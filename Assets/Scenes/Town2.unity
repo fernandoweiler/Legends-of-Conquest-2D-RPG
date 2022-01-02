@@ -473,7 +473,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentences:
+  - '#Jimmy'
   - Hello there
+  - '#Healer'
   - General Kenobi
   - What a surprise
 --- !u!1 &397974759

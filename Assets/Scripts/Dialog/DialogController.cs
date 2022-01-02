@@ -32,6 +32,7 @@ public class DialogController : MonoBehaviour
                 }
                 else
                 {
+                    CheckForName();
                     dialogText.text = dialogSentences[currentSentence];
                 }
 
@@ -40,10 +41,21 @@ public class DialogController : MonoBehaviour
         }
     }
 
+    private void CheckForName()
+    {
+        if (dialogSentences[currentSentence].StartsWith("#"))
+        {
+            nameText.text = dialogSentences[currentSentence].Substring(1);
+            currentSentence++;
+        }
+    }
+
     public void activateDialog(string[] newSentencesToUse)
     {
         dialogSentences = newSentencesToUse;
         currentSentence = 0;
+
+        CheckForName();
 
         dialogText.text = dialogSentences[currentSentence];
         dialogBox.SetActive(true);
