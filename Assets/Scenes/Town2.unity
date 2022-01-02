@@ -472,7 +472,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c9914ac7667f94b944c79ef4830655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sentences: []
+  sentences:
+  - Hello there
+  - General Kenobi
+  - What a surprise
 --- !u!1 &397974759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,6 +1079,32 @@ PrefabInstance:
       objectReference: {fileID: 1107389796}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7612cddc63de7ac41b0a7c27461aff87, type: 3}
+--- !u!1 &1091411238 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7881795455954500280, guid: e350f1e5ac87e6040beb2725798e8792, type: 3}
+  m_PrefabInstance: {fileID: 7881795456035728134}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1091411239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091411238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84499ab1fe205254b8492aa3170c50d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogText: {fileID: 397974761}
+  nameText: {fileID: 188068222}
+  dialogBox: {fileID: 1417297750}
+  nameBox: {fileID: 985556262}
+  dialogSentences:
+  - hi
+  - hallo
+  - AHOI
+  currentSentence: 0
 --- !u!224 &1091411243 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7881795455954500292, guid: e350f1e5ac87e6040beb2725798e8792, type: 3}
@@ -3742,14 +3771,13 @@ GameObject:
   - component: {fileID: 1417297751}
   - component: {fileID: 1417297753}
   - component: {fileID: 1417297752}
-  - component: {fileID: 1417297754}
   m_Layer: 5
   m_Name: Dialog Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1417297751
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3809,27 +3837,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1417297750}
   m_CullTransparentMesh: 1
---- !u!114 &1417297754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417297750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84499ab1fe205254b8492aa3170c50d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogText: {fileID: 397974761}
-  nameText: {fileID: 188068222}
-  dialogBox: {fileID: 1417297750}
-  nameBox: {fileID: 985556262}
-  dialogSentences:
-  - Hello there
-  - General Kenobi
-  - AHOI
-  currentSentence: 0
 --- !u!1001 &1495564893
 PrefabInstance:
   m_ObjectHideFlags: 0

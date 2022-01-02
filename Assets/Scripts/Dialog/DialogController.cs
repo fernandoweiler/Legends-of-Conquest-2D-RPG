@@ -15,7 +15,6 @@ public class DialogController : MonoBehaviour
     private void Start()
     {
         Instance = this;
-
         dialogText.text = dialogSentences[currentSentence];
     }
 
@@ -26,8 +25,6 @@ public class DialogController : MonoBehaviour
         {
             if (Input.GetButtonUp("Fire1"))
             {
-                currentSentence++;
-
                 if (currentSentence >= dialogSentences.Length)
                 {
                     dialogBox.SetActive(false);
@@ -36,7 +33,23 @@ public class DialogController : MonoBehaviour
                 {
                     dialogText.text = dialogSentences[currentSentence];
                 }
+
+                currentSentence++;
             }
         }
+    }
+
+    public void activateDialog(string[] newSentencesToUse)
+    {
+        dialogSentences = newSentencesToUse;
+        currentSentence = 0;
+
+        dialogText.text = dialogSentences[currentSentence];
+        dialogBox.SetActive(true);
+    }
+
+    public bool IsDialogBoxActive()
+    {
+        return dialogBox.activeInHierarchy;
     }
 }
